@@ -1,0 +1,105 @@
+<!--
+  KeyShotXR
+  (c) Copyright 2012-2017 Luxion ApS - All Rights Reserved.
+-->
+
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>KeyShotXR</title>
+    <style type="text/css">
+      html {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+         -ms-touch-action: none;
+      }
+
+      #KeyShotXR {
+        position: relative;
+      }
+
+      #logo-mansfield {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        z-index: 2;
+        width: 46px;
+        height: auto;
+        opacity: 1;
+        transition: opacity 0.3s;
+        animation: spinner 0.6s infinite alternate;
+      }
+
+      @keyframes spinner {
+        from {
+          opacity: 0.8;
+        }
+
+        to {
+          opacity: 0.5;
+        }
+      }
+
+    </style>
+    <script type="text/javascript" src="torrentXR/files/KeyShotXR.js"></script>
+    <script type="text/javascript">
+      var keyshotXR;
+
+      function initKeyShotXR() {
+        var nameOfDiv = "KeyShotXR";
+        var folderName = "torrentXR";
+        var viewPortWidth = 600;
+        var viewPortHeight = 600;
+        var backgroundColor = "#fff";
+        var uCount = 45;
+        var vCount = 14;
+        var uWrap = true;
+        var vWrap = false;
+        var uMouseSensitivity = -0.125;
+        var vMouseSensitivity = 0.175;
+        var uStartIndex = 36;
+        var vStartIndex = 8;
+        var minZoom = 1;
+        var maxZoom = 2;
+        var rotationDamping = 0.96;
+        var downScaleToBrowser = true;
+        var addDownScaleGUIButton = false;
+        var downloadOnInteraction = false;
+        var imageExtension = "jpg";
+        var showLoading = false;
+        var loadingIcon = "bc.png"; // Set to empty string for default icon.
+        var allowFullscreen = true; // Double-click in desktop browsers for fullscreen.
+        var uReverse = false;
+        var vReverse = false;
+        var hotspots = {};
+        
+        keyshotXR = new keyshotXR(nameOfDiv,folderName,viewPortWidth,viewPortHeight,backgroundColor,uCount,vCount,uWrap,vWrap,uMouseSensitivity,vMouseSensitivity,uStartIndex,vStartIndex,minZoom,maxZoom,rotationDamping,downScaleToBrowser,addDownScaleGUIButton,downloadOnInteraction,imageExtension,showLoading,loadingIcon,allowFullscreen,uReverse,vReverse,hotspots);
+
+        setTimeout( () => {
+          document.getElementById("logo-mansfield").style.animation = "none";
+        } , 7000);
+
+      }
+
+      window.onload = initKeyShotXR;
+      
+    </script>
+  </head>
+  <body oncontextmenu="return false;">
+    <div id="KeyShotXR">
+      <svg id="logo-mansfield" width="300" height="291" viewBox="0 0 300 291" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M158.13 56.9677C153.663 60.9654 151.059 63.9206 150 65C145.905 60.8147 141.028 56.8018 136.533 53.0499C114.195 34.1407 65.233 0.329813 0 0V290.036H300V0C229.54 0 177.899 39.2178 158.13 56.9677ZM207.622 180.018C199.947 205.004 177.02 223.124 149.995 223.124C122.97 223.124 100.023 204.964 92.3777 180.018C90.5487 174.084 89.6222 167.908 89.6292 161.698C89.6945 155.602 90.6197 149.546 92.3777 143.709C93.6329 139.437 95.1961 135.261 97.055 131.216C102.414 119.891 109.17 109.281 117.164 99.6335C125.853 88.9605 135.501 79.105 145.987 70.1902L150 67L153.983 70.1902C164.464 79.1065 174.109 88.9619 182.796 99.6335C190.577 109.014 197.191 119.304 202.495 130.276C204.543 134.613 206.247 139.105 207.592 143.709C209.35 149.546 210.276 155.602 210.341 161.698C210.354 167.91 209.438 174.088 207.622 180.028V180.018Z" fill="#143A5F"/>
+      </svg>
+    </div>
+  </body>
+</html>
